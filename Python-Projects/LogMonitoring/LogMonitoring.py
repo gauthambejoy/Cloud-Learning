@@ -1,6 +1,15 @@
 from flask import Flask, request, jsonify
+import redis
+import json
+import os
 
 app = Flask(__name__)
+
+redis_client = redis.Redis(
+    host=os.getenv("REDIS_HOST", "localhost"),
+    port=6379,
+    decode_responses=True
+)
 
 def monitor(logfile):
     try:
@@ -33,8 +42,27 @@ def upload():
 
     filepath = f"uploads/{file.filename}"
     file.save(filepath)
+
+    cache_key = file.filename
+    cached = redis_client.get(cache_key)
+
+    if cached:
+        return jsonify({
+            "source": "cache",
+            "result": json.loads(cached)
+        })
     result=monitor(filepath)
-    return jsonify(result)
+
+    redis_client.set(
+        cache_key,
+        json.dumps(result),
+        ex=60
+    )
+
+    return jsonify({
+        "source": "system",
+        "result": result
+    })
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
