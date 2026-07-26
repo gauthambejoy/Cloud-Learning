@@ -1,4 +1,5 @@
 import requests
+import sys
 
 def getdata():
         r=requests.get("http://localhost:5000/metrics")
@@ -35,4 +36,33 @@ def status():
                         print(f"CPU     :{data['CPU']}%")
                         print(f"DISK    :{data['DISK']}%")
                         print(f"MEMORY  :{data['MEMORY']}%")
-status()
+def help():
+        print("""
+Watchdog CLI
+============
+
+Usage:
+    python3 watchcli.py <command>
+
+Commands:
+    status      Show API, Redis and system metrics
+    help        Show this help message
+
+Examples:
+    python3 watchcli.py status
+    python3 watchcli.py help
+    """)
+arguments=sys.argv[1:]
+
+if len(arguments) != 1:
+        print(f"ERROR: 1 argument expected, {len(arguments)} given")
+        sys.exit()
+
+argument=arguments[0]
+
+if argument == 'status':
+        status()
+elif argument == 'help':
+        help()
+else:
+        print(f"ERROR: {argument} not available!!")
