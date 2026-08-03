@@ -1,8 +1,6 @@
 services:
   flask:
     build: .
-    ports:
-      - "5000:5000"
     depends_on:
       - redis
     environment:
@@ -26,6 +24,16 @@ services:
     image: redis:7-alpine
     networks:
       - custom-network
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    networks:
+      - custom-network
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./dashboard:/usr/share/nginx/html:ro
 networks:
   custom-network:
     driver: bridge

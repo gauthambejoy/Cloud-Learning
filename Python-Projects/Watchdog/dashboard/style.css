@@ -1,0 +1,46 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.dashboard-header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap:25px;
+    margin-top: 100px;
+
+}
+
+.card-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:25px;
+    margin-top: 100px;
+}
+
+.card{
+    width:325px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.card-content{
+    padding:30px 30px;
+    line-height: 1.3;
+}
+
+.last-update{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap:25px;
+    margin-top: 100px;
+}
