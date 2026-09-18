@@ -74,10 +74,3 @@ DirOrganizer.log
 * OS/File Handling
 * Logging
 * Exception Handling
-
-## Future Improvements
-
-* Add command-line arguments
-* Add duplicate file handling
-* Use `watchdog` for real-time file monitoring
-* Run as a Linux `systemd` service
