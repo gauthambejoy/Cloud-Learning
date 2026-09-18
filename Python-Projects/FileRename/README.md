@@ -1,4 +1,4 @@
-# File Renamer
+# File Rename
 
 A simple Python script that renames all files in a directory using a sequential naming format.
 
