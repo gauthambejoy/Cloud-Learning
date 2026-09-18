@@ -1,4 +1,4 @@
-# Process Monitor
+# CPU Process
 
 A simple Bash script that displays the top processes using CPU and memory on a Linux system.
 
