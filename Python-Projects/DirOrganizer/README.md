@@ -1,8 +1,8 @@
-Directory Organizer
+# Directory Organizer
 
 A simple Python script that automatically organizes files into folders based on their file extensions.
 
-Features
+## Features
 
 * Organizes files by extension
 * Creates folders automatically
@@ -11,18 +11,21 @@ Features
 * Handles invalid directories
 * Can be stopped using `Ctrl+C`
 
-Example
+## Example
 
 Before:
 
+```text
 Downloads/
 ├── photo.jpg
 ├── resume.pdf
 ├── notes.txt
 └── script.py
+```
 
 After:
 
+```text
 Downloads/
 ├── jpg/
 │   └── photo.jpg
@@ -32,40 +35,47 @@ Downloads/
 │   └── notes.txt
 └── py/
     └── script.py
+```
 
-Requirements
+## Requirements
 
 * Python 3.x
 * No external libraries required
 
-Usage
+## Usage
 
 Run the script:
 
+```bash
 python organizer.py
+```
 
 Enter the directory path when prompted:
 
+```text
 Enter the path of the directory: /home/user/Downloads
+```
 
 The script will continuously organize new files.
 
 Press `Ctrl+C` to stop it.
 
-Logging
+## Logging
 
 File operations are recorded in:
 
+```text
 DirOrganizer.log
+```
 
-Technologies
+## Technologies
 
 * Python
 * OS/File Handling
 * Logging
 * Exception Handling
 
-Future Improvements
+## Future Improvements
 
 * Add command-line arguments
 * Add duplicate file handling
