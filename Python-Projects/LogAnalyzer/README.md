@@ -1,4 +1,4 @@
-# Log Monitoring API
+# Log Analyzer
 
 A simple Flask application that displays Linux system logs using `journalctl` and allows filtering logs by severity.
 
